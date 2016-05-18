@@ -24,6 +24,11 @@ include $(BUILD_EXECUTABLE)
 
 
 include $(CLEAR_VARS)
-   LOCAL_MODULE := mtee
-   LOCAL_SRC_FILES := libs/libmtee.so
+include $(TDS_SDK_ROOT)/build/depend.mk
+LOCAL_MODULE := mtee
+ifeq ($(TARGET_ARCH_ABI),arm64-v8a)
+    LOCAL_SRC_FILES := $(LIB_REE_ARM64_PATH)/libmtee.so
+else
+    LOCAL_SRC_FILES := $(LIB_REE_PATH)/libmtee.so
+endif
 include $(PREBUILT_SHARED_LIBRARY)

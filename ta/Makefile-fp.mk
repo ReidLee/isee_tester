@@ -8,10 +8,9 @@ SRC_CC = src/utils.cc \
 MY_CFLAGS =  \
 	-Iinclude \
     -I$(INCLUDE_PRIVATE_CONTRIB)/lib_common \
-	$(INCLUDE_PLATFORM_FP)
+	$(INCLUDE_PLATFORM_FP) \
+	-DLOG_LV_DEBUG
 
 
-
-
-MY_LDFLAGS = -lmsg -ldrivers_spi -Llibs -lfpc -L../fpc_ta_lib/obj -lfp_ta $(LIB_PLATFORM_FP) $(LIB_PLATFORM_KM) -larm_time
+MY_LDFLAGS = -lmsg -ldrivers_spi  -L../fpc_ta_lib/obj $(LIB_PLATFORM_FP) $(LIB_PLATFORM_KM) -larm_time
 include $(TDS_SDK_ROOT)/build/prog.mk

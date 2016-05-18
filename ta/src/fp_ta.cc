@@ -16,16 +16,21 @@
 
 EXTERNC_BEGIN
 
+void init_main(){
+	ENTER_FUNC
+	LEAVE_FUNC
+}
+
 int main(int argc,char** argv) {
 	ENTER_FUNC
-	return fp_main();
+	fp_main();
 	LEAVE_FUNC
 	return 0;
 }
 
-
-
-int ut_fp_invokeCommand(void* param, void*  data,
+//ut_fp_invokeCommand
+//teei_fp_invokeCommand
+int teei_fp_invokeCommand(void* param, void*  data,
 		uint32_t param_length) {
 	ENTER_FUNC
 	char* inputStr = "hello , I'm a fp client .";
